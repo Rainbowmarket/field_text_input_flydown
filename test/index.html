@@ -1,0 +1,29 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Blockly Example</title>
+    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+    <script src="../dist/index.js"></script>
+</head>
+<body>
+    <h1>Blockly Basic Example</h1>
+    
+    <!-- Blockly workspace -->
+    <div id="blocklyDiv" style="height: 500px; width: 100%;"></div>
+    
+    <!-- Toolbox (block menu) -->
+    <xml id="toolbox" style="display: none">
+        <category name="Custom Blocks" colour="230">
+            <block type="example_call"></block>
+        </category>
+    </xml>
+
+    <button onclick="runCode()">Run JavaScript</button>
+    <pre id="output"></pre>
+    
+    <script src="./index.js"></script>
+</body>
+</html>
