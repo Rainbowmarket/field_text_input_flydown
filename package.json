@@ -1,7 +1,7 @@
 {
   "name": "@rainbowmarket/field-text-input-flydown",
   "version": "1.0.1",
-  "description": "Custom Blockly Fields with Flydown and Renderer Components",
+  "description": "Custom Blockly Input Fields with Flydown and Renderer Components",
   "main": "dist/index.js",
   "module": "src/index.js",
   "unpkg": "dist/index.js",
@@ -19,8 +19,7 @@
   },
   "keywords": [
     "blockly",
-    "blockly-plugin",
-    "blockly-field-flydown"
+    "blockly-plugin"
   ],
   "author": "Naveen",
   "license": "MIT",
@@ -41,15 +40,11 @@
     "src"
   ],
   "dependencies": {
-    "blockly": "^10.4.3",
-    "nanoid": "^5.0.9"
+    "blockly": "^10.4.3"
   },
   "devDependencies": {
     "@blockly/dev-scripts": "^4.0.7",
-    "@blockly/dev-tools": "^7.0.2",
-    "chai": "^4.3.7",
-    "mocha": "^11.1.0",
-    "parcel": "^2.10.0"
+    "@blockly/dev-tools": "^7.0.2"
   },
   "eslintConfig": {
     "extends": "@blockly/eslint-config"
