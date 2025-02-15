@@ -1,4 +1,4 @@
-# field_text_input_flydown [![Built on Blockly](https://tinyurl.com/built-on-blockly)](https://github.com/google/blockly)
+# field_text_input_flydown 
 
 A custom blockly field that provides a text input with a flydown menu.
 
