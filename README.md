@@ -23,12 +23,12 @@ Or include it via CDN:
 
 #### ES Modules (Recommended)
 ```js
-import { FieldTextInputWithFlydown, FieldFlydown } from 'field_text_input_flydown';
+import { FieldTextInputWithFlydown, FieldFlydown } from '@rainbowmarket/field_text_input_flydown';
 ```
 
 #### CommonJS (Node.js)
 ```js
-const { FieldTextInputWithFlydown, FieldFlydown } = require('field_text_input_flydown');
+const { FieldTextInputWithFlydown, FieldFlydown } = require('@rainbowmarket/field_text_input_flydown');
 ```
 
 ### 2️⃣ Define a Custom Block
