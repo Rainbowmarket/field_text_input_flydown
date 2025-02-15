@@ -1,29 +1,97 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Basic Blockly Example</title>
-    <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-    <script src="../dist/index.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lexical Variables with Flydown</title>
+  <script src="https://unpkg.com/blockly/blockly.min.js"></script>
+  <script src="https://unpkg.com/@rainbowmarket/field-text-input-flydown@latest"></script>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+    }
+    #blocklyDiv {
+      height: 100%;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-    <h1>Blockly Basic Example</h1>
-    
-    <!-- Blockly workspace -->
-    <div id="blocklyDiv" style="height: 500px; width: 100%;"></div>
-    
-    <!-- Toolbox (block menu) -->
-    <xml id="toolbox" style="display: none">
-        <category name="Custom Blocks" colour="230">
-            <block type="example_call"></block>
-        </category>
-    </xml>
+  <div id="blocklyDiv"></div>
 
-    <button onclick="runCode()">Run JavaScript</button>
-    <pre id="output"></pre>
-    
-    <script src="./index.js"></script>
+  <script>
+
+// const custom_text_input = {
+//   init: function() {
+//     this.appendDummyInput('input')
+//       .appendField('FieldTextInputWithFlydown')
+//       .appendField(new FieldTextInputWithFlydown('item'), 'TEXT');
+//     this.appendStatementInput('statement')
+//       .appendField('do');
+//     this.setTooltip('');
+//     this.setHelpUrl('');
+//     this.setColour(250);
+//   }
+// };
+// Blockly.common.defineBlocks({custom_text_input: custom_text_input});
+Blockly.defineBlocksWithJsonArray([
+    {
+      "type": "custom_text_input",
+      "tooltip": "",
+      "helpUrl": "",
+      "message0": "FieldTextInputWithFlydown %1 %2 do %3",
+      "args0": [
+        {
+          "type": "field_text_input_with_flydown",
+          "name": "NAME",
+          "text": "item"
+        },
+        {
+          "type": "input_dummy",
+          "name": "input"
+        },
+        {
+          "type": "input_statement",
+          "name": "statement"
+        }
+      ],
+      "colour": 250
+    }                    
+]);
+
+javascript.javascriptGenerator.forBlock['custom_text_input'] = function(block, generator) {
+  const text_name = block.getFieldValue('NAME');
+  const variable_var = generator.getVariableName(block.getFieldValue('TEXT'));
+
+  const statement_statement = generator.statementToCode(block, 'statement');
+
+  const code = `${text_name} (${variable_var}){\n${statement_statement}}`;
+  return code;
+}
+
+
+    // Create toolbox
+    const toolbox = `
+      <xml>
+        <category name="My Custom Block" colour="#9C27B0">
+          <block type="custom_text_input"></block>
+        </category>
+      </xml>
+    `;
+
+    // Initialize workspace
+    const workspace = Blockly.inject('blocklyDiv', {
+      toolbox: toolbox,
+      scrollbars: false,
+    });
+    FieldFlydown.init(workspace);
+    const block = workspace.newBlock('custom_text_input');
+    block.initSvg();
+    block.render();
+    block.setMovable(false);
+    block.setDeletable(false);
+    block.moveBy(15 - block.getRelativeToSurfaceXY().x, 15 - block.getRelativeToSurfaceXY().y);
+  </script>
 </body>
 </html>

@@ -8,6 +8,11 @@ To install this library, run the following command:
 npm i @rainbowmarket/field-text-input-flydown
 ```
 
+Or include it via CDN:
+```html
+<script src="https://unpkg.com/@rainbowmarket/field-text-input-flydown@latest"></script>
+```
+
 ## 📌 Usage
 
 ### 1️⃣ Import the Library
