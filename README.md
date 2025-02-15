@@ -11,10 +11,15 @@ npm install git+https://github.com/Rainbowmarket/field_text_input_flydown.git
 ## 📌 Usage
 
 ### 1️⃣ Import the Library
-In your JavaScript file, import the custom field:
+
+#### ES Modules (Recommended)
 ```js
-const FieldTextInputFlydown = require('field_text_input_flydown');
-const FieldFlydown = require('field_text_input_flydown');
+import { FieldTextInputWithFlydown, FieldFlydown } from 'field_text_input_flydown';
+```
+
+#### CommonJS (Node.js)
+```js
+const { FieldTextInputWithFlydown, FieldFlydown } = require('field_text_input_flydown');
 ```
 
 ### 2️⃣ Define a Custom Block
@@ -26,7 +31,7 @@ const custom_text_input = {
   init: function() {
     this.appendDummyInput('input')
       .appendField('FieldTextInputWithFlydown')
-      .appendField(new FieldTextInputFlydown('item'), 'TEXT');
+      .appendField(new FieldTextInputWithFlydown('item'), 'TEXT');
     this.appendStatementInput('statement')
       .appendField('do');
     this.setTooltip('');
@@ -34,7 +39,7 @@ const custom_text_input = {
     this.setColour(250);
   }
 };
-Blockly.common.defineBlocks({custom_text_input: custom_text_input});
+Blockly.common.defineBlocks({ custom_text_input: custom_text_input });
 ```
 
 #### JSON Example
@@ -79,12 +84,6 @@ FieldFlydown.init(workspace);
 
 ## 🔧 Compatibility
 Ensure that your Blockly version is **10.0.0 or later** for full compatibility.
-
-## 🛠 Development
-If you're modifying the library locally, install it using:
-```sh
-npm install /path/to/your/local/field_text_input_flydown
-```
 
 ## 🤝 Contributing
 Feel free to fork the repository and submit pull requests with improvements!
