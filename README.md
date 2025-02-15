@@ -5,7 +5,7 @@ A custom Blockly field that provides a text input with a flydown menu.
 ## 🚀 Installation
 To install this library, run the following command:
 ```sh
-npm install git+https://github.com/Rainbowmarket/field_text_input_flydown.git
+npm i @rainbowmarket/field-text-input-flydown
 ```
 
 ## 📌 Usage
