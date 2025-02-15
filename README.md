@@ -1,6 +1,10 @@
 # field_text_input_flydown [![Built on Blockly](https://tinyurl.com/built-on-blockly)](https://github.com/google/blockly)
 
-A custom Blockly field that provides a text input with a flydown menu.
+A custom blockly field that provides a text input with a flydown menu.
+
+You can see a demo version of a Blockly app that has integrated this plugin
+[here](https://rainbowmarket.github.io/field_text_input_flydown/test/).  The code for that
+demo is [here](https://rainbowmarket.github.io/field_text_input_flydown/test/).
 
 ## 🚀 Installation
 To install this library, run the following command:
