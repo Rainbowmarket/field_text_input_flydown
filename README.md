@@ -4,7 +4,7 @@ A custom blockly field that provides a text input with a flydown menu.
 
 You can see a demo version of a Blockly app that has integrated this plugin
 [here](https://rainbowmarket.github.io/field_text_input_flydown/test/).  The code for that
-demo is [here](https://rainbowmarket.github.io/field_text_input_flydown/test/).
+demo is [here](https://github.com/Rainbowmarket/field_text_input_flydown).
 
 ## 🚀 Installation
 To install this library, run the following command:
