@@ -1,6 +1,7 @@
+
 # field_text_input_flydown  [![badge@npm:@rainbowmarket/field-text-input-flydown](https://img.shields.io/npm/v/@rainbowmarket/field-text-input-flydown)](https://www.npmjs.com/package/@rainbowmarket/field-text-input-flydown)
 
-A custom blockly field that provides a text input with a flydown menu.
+A custom Blockly field that provides a text input with a flydown menu.
 
 You can see a demo version of a Blockly app that has integrated this plugin
 [here](https://rainbowmarket.github.io/field_text_input_flydown/test/).  The code for that
@@ -34,16 +35,19 @@ const { FieldTextInputWithFlydown, FieldFlydown } = require('@rainbowmarket/fiel
 ### 2️⃣ Define a Custom Block
 You can define a block using either JavaScript or JSON.
 
-#### Example XMLBlock String 
+#### Example XMLBlock String
 
 ```js
 const xmlData = `
   <xml>
+    <!-- A block for getting the value of a variable -->
     <block type="variables_get">
-      <field name="VAR">{{text}}</field>
+      <field name="VAR">{{text}}</field>  <!-- {{text}} = Dynamic value retrieved from the field -->
     </block>
+
+    <!-- A block for setting the value of a variable with a custom text input flydown -->
     <block type="variables_set">
-      <field name="VAR">{{text}}</field>
+      <field name="VAR">{{text}}</field>  <!-- {{text}} = Dynamic value retrieved from the field -->
     </block>
   </xml>
 `
@@ -110,9 +114,22 @@ FieldFlydown.init(workspace);
 ## 🔧 Compatibility
 Ensure that your Blockly version is **10.0.0 or later** for full compatibility.
 
+## 📚 Explaining `{{text}}`
+
+The `{{text}}` in the XML block definition is a **placeholder** for dynamically inserted text values that will be updated when interacting with the Blockly field. It represents a **dynamic value** that can be modified based on user input or logic in the Blockly environment. Specifically:
+
+- **Dynamic Replacement**: The `{{text}}` will be replaced by a value, which is typically retrieved from a custom field (e.g., `FieldTextInputWithFlydown`).
+- **Custom Field Usage**: In a custom Blockly field, like `FieldTextInputWithFlydown`, the text value will be retrieved and assigned dynamically, often using methods like `this.getText()`.
+
+For example:
+```xml
+<field name="VAR">{{text}}</field>  <!-- {{text}} = Dynamic value retrieved from the field -->
+```
+
+In this case, `{{text}}` will be populated by the value of the text input or flydown field, allowing the block to work interactively.
+
 ## 🤝 Contributing
 Feel free to fork the repository and submit pull requests with improvements!
 
 ## 📜 License
 This project is licensed under the [MIT License](LICENSE).
-
