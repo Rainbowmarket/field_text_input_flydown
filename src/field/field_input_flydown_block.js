@@ -10,10 +10,11 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
     static DISPLAY_RIGHT = 'RIGHT';
     static DISPLAY_LOCATION = FieldTextInputWithFlydown.DISPLAY_BELOW;
 
-    constructor(name, isEditable, opt_displayLocation) {
+    constructor(name, xmlData, opt_displayLocation) {
         super(name);
-        this.EDITABLE = isEditable ?? true;
+        this.EDITABLE = true;
         this.displayLocation = opt_displayLocation || FieldTextInputWithFlydown.DISPLAY_RIGHT;
+        this.xmlData = xmlData || '';
     }
 
     init(block) {
@@ -101,18 +102,19 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
     
     flydownBlocksXML_() {
         const name = this.getText() || 'default';
-        return '<xml>' +
-            '<block type="variables_get">' +
-            '<field name="VAR">' +
-            name +
-            '</field>' +
-            '</block>' +
-            '<block type="variables_set">' +
-            '<field name="VAR">' +
-            name +
-            '</field>' +
-            '</block>' +
-            '</xml>';
+    
+        const xmlBlock = this.xmlData ? this.xmlData.replace(/{{text}}/g, name) : null;
+    
+        return xmlBlock || `
+            <xml>
+                <block type="variables_get">
+                    <field name="VAR">${name}</field>
+                </block>
+                <block type="variables_set">
+                    <field name="VAR">${name}</field>
+                </block>
+            </xml>
+        `;
     }
 
     static hide() {
@@ -130,4 +132,3 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
         super.dispose();
     }
 }
-
