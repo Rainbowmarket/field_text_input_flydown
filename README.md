@@ -34,13 +34,28 @@ const { FieldTextInputWithFlydown, FieldFlydown } = require('@rainbowmarket/fiel
 ### 2️⃣ Define a Custom Block
 You can define a block using either JavaScript or JSON.
 
+#### Example XMLBlock String 
+
+```js
+const xmlData = `
+  <xml>
+    <block type="variables_get">
+      <field name="VAR">{{text}}</field>
+    </block>
+    <block type="variables_set">
+      <field name="VAR">{{text}}</field>
+    </block>
+  </xml>
+`
+```
+
 #### JavaScript Example
 ```js
 const custom_text_input = {
   init: function() {
     this.appendDummyInput('input')
       .appendField('FieldTextInputWithFlydown')
-      .appendField(new FieldTextInputWithFlydown('item'), 'TEXT');
+      .appendField(new FieldTextInputWithFlydown('item',/*optional*/ xmlData), 'TEXT');
     this.appendStatementInput('statement')
       .appendField('do');
     this.setTooltip('');
@@ -63,7 +78,8 @@ Blockly.defineBlocksWithJsonArray([
       {
         "type": "field_text_input_with_flydown",
         "name": "NAME",
-        "text": "item"
+        "text": "item",
+        "xmlData": xmlData
       },
       {
         "type": "input_dummy",
