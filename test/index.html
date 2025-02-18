@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Field-Text-Input-Flydown</title>
   <script src="https://unpkg.com/blockly/blockly.min.js"></script>
-  <script src="https://unpkg.com/@rainbowmarket/field-text-input-flydown@latest"></script>
+  <script src="./index.js"></script>
   <style>
     html, body {
       height: 100%;
@@ -21,44 +21,50 @@
   <div id="blocklyDiv"></div>
 
   <script>
-
-// const custom_text_input = {
-//   init: function() {
-//     this.appendDummyInput('input')
-//       .appendField('FieldTextInputWithFlydown')
-//       .appendField(new FieldTextInputWithFlydown('item'), 'TEXT');
-//     this.appendStatementInput('statement')
-//       .appendField('do');
-//     this.setTooltip('');
-//     this.setHelpUrl('');
-//     this.setColour(250);
-//   }
-// };
-// Blockly.common.defineBlocks({custom_text_input: custom_text_input});
-Blockly.defineBlocksWithJsonArray([
-    {
-      "type": "custom_text_input",
-      "tooltip": "",
-      "helpUrl": "",
-      "message0": "FieldTextInputWithFlydown %1 %2 do %3",
-      "args0": [
-        {
-          "type": "field_text_input_with_flydown",
-          "name": "NAME",
-          "text": "item"
-        },
-        {
-          "type": "input_dummy",
-          "name": "input"
-        },
-        {
-          "type": "input_statement",
-          "name": "statement"
-        }
-      ],
-      "colour": 250
-    }                    
-]);
+const xmlData = `
+            <xml>
+                <block type="variables_get">
+                    <field name="VAR">{{text}}</field>
+                </block>
+            </xml>
+        `;
+const custom_text_input = {
+  init: function() {
+    this.appendDummyInput('input')
+      .appendField('FieldTextInputWithFlydown')
+      .appendField(new FieldTextInputWithFlydown('item', xmlData), 'TEXT');
+    this.appendStatementInput('statement')
+      .appendField('do');
+    this.setTooltip('');
+    this.setHelpUrl('');
+    this.setColour(250);
+  }
+};
+Blockly.common.defineBlocks({custom_text_input: custom_text_input});
+// Blockly.defineBlocksWithJsonArray([
+//     {
+//       "type": "custom_text_input",
+//       "tooltip": "",
+//       "helpUrl": "",
+//       "message0": "FieldTextInputWithFlydown %1 %2 do %3",
+//       "args0": [
+//         {
+//           "type": "field_text_input_with_flydown",
+//           "name": "NAME",
+//           "text": "item"
+//         },
+//         {
+//           "type": "input_dummy",
+//           "name": "input"
+//         },
+//         {
+//           "type": "input_statement",
+//           "name": "statement"
+//         }
+//       ],
+//       "colour": 250
+//     }                    
+// ]);
 
 javascript.javascriptGenerator.forBlock['custom_text_input'] = function(block, generator) {
   const text_name = block.getFieldValue('NAME');

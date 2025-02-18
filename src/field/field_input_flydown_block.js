@@ -62,16 +62,17 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
     }
 
     showFlydown_() {
-        Blockly.common.getMainWorkspace().hideChaff();
-    
-        if (typeof Blockly.common.getMainWorkspace().getFlydown !== "function") {
-            console.error("Flydown workspace is not properly initialized!");
+        const workspace = Blockly.common.getMainWorkspace();
+        if (!workspace) {
+            console.error("Main workspace is not available!");
             return;
         }
-    
-        const flydown = Blockly.common.getMainWorkspace().getFlydown();
-        if (!flydown) {
-            console.error("Flydown is not available!");
+
+        workspace.hideChaff();
+        
+        const flydown = workspace.getFlydown();
+        if (!flydown || !flydown.svgGroup_) {
+            console.error("Flydown or its SVG group is not properly initialized!");
             return;
         }
     
@@ -102,10 +103,21 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
     
     flydownBlocksXML_() {
         const name = this.getText() || 'default';
+        
+        if (this.xmlData) {
+            try {
+                return this.xmlData.replace(/{{text}}/g, name);
+            } catch (e) {
+                console.error('Error processing XML template:', e);
+                return this.getDefaultXML_(name);
+            }
+        }
+        
+        return this.getDefaultXML_(name);
+    }
     
-        const xmlBlock = this.xmlData ? this.xmlData.replace(/{{text}}/g, name) : null;
-    
-        return xmlBlock || `
+    getDefaultXML_(name) {
+        return `
             <xml>
                 <block type="variables_get">
                     <field name="VAR">${name}</field>
@@ -126,9 +138,20 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
     }
 
     dispose() {
+        // Current implementation
         if (FieldTextInputWithFlydown.openFieldFlydown_ == this) {
             FieldTextInputWithFlydown.hide();
         }
         super.dispose();
+        
+        // Should also clean up event listeners:
+        if (this.mouseOverWrapper_) {
+            Blockly.browserEvents.unbind(this.mouseOverWrapper_);
+            this.mouseOverWrapper_ = null;
+        }
+        if (this.mouseOutWrapper_) {
+            Blockly.browserEvents.unbind(this.mouseOutWrapper_);
+            this.mouseOutWrapper_ = null;
+        }
     }
 }
