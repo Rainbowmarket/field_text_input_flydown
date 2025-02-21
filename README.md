@@ -1,5 +1,6 @@
 
-# field_text_input_flydown  [![badge@npm:@rainbowmarket/field-text-input-flydown](https://img.shields.io/npm/v/@rainbowmarket/field-text-input-flydown)](https://www.npmjs.com/package/@rainbowmarket/field-text-input-flydown)
+# field_text_input_flydown  [![badge@npm:@rainbowmarket/field-text-input-flydown](https://img.shields.io/npm/v/@rainbowmarket/field-text-input-flydown)](https://www.npmjs.com/package/@rainbowmarket/field-text-input-flydown) [![](https://img.shields.io/npm/l/@rainbowmarket/field-text-input-flydown?dummy=unused)](https://github.com/Rainbowmarket/field_text_input_flydown/blob/main/LICENSE)
+
 
 A custom Blockly field that provides a text input with a flydown menu.
 
