@@ -113,7 +113,7 @@ FieldFlydown.init(workspace);
 ![Custom Block](readme-media/Custom_Block.png "Block")
 
 ## 🔧 Compatibility
-Ensure that your Blockly version is **10.0.0 or later** for full compatibility.
+Ensure that your Blockly version is **12.x** (peer dependency `^12.0.0`) for full compatibility.
 
 ## 📚 Explaining `{{text}}`
 

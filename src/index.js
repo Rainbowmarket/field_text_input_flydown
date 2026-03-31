@@ -1,3 +1,4 @@
+import * as Blockly from 'blockly/core';
 import { FieldTextInputWithFlydown } from './field/field_input_flydown_block.js';
 import { FieldFlydown } from './field/feald_flydown_init.js';
 
