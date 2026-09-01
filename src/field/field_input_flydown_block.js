@@ -17,8 +17,8 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
         this.xmlData = xmlData || '';
     }
 
-    init(block) {
-        super.init(block);
+    init() {
+        super.init();
         Blockly.utils.dom.addClass(this.fieldGroup_, this.fieldCSSClassName);
 
         this.mouseOverWrapper_ = Blockly.browserEvents.bind(
@@ -83,9 +83,11 @@ export class FieldTextInputWithFlydown extends Blockly.FieldTextInput {
     
         flydown.setCSSClass(this.flyoutCSSClassName);
 
-        const parentBlock = this.getSourceBlock().getParent();
-        const blockColor = parentBlock ? parentBlock.getColour() : this.getSourceBlock().getColour();
-        document.documentElement.style.setProperty('--flydown-bg-color', blockColor);
+        const sourceBlock = this.getSourceBlock();
+        document.documentElement.style.setProperty(
+            '--flydown-bg-color',
+            sourceBlock.getColour()
+        );
             
         const blocksXMLText = this.flydownBlocksXML_();
         const blocksDom = Blockly.utils.xml.textToDom(blocksXMLText);
