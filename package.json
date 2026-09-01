@@ -1,6 +1,6 @@
 {
   "name": "@rainbowmarket/field-text-input-flydown",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "Custom Blockly Input Fields with Flydown and Renderer Components",
   "main": "dist/index.js",
   "module": "src/index.js",
@@ -14,6 +14,7 @@
     "lint": "blockly-scripts lint",
     "predeploy": "blockly-scripts predeploy",
     "prepublishOnly": "npm run clean && npm run build-nolint",
+    "npm:publish": "npm publish",
     "start": "blockly-scripts start --skip-lint",
     "test": "blockly-scripts test"
   },
@@ -43,12 +44,12 @@
     "src"
   ],
   "devDependencies": {
-    "@blockly/dev-scripts": "^4.0.11",
-    "@blockly/dev-tools": "^9.0.8",
-    "blockly": "^12.5.1"
+    "@blockly/dev-scripts": "^13.2.0",
+    "@blockly/dev-tools": "^13.2.0",
+    "blockly": "^13.2.1"
   },
   "peerDependencies": {
-    "blockly": "^12.0.0"
+    "blockly": "^13.0.0"
   },
   "eslintConfig": {
     "extends": "@blockly/eslint-config"
@@ -57,9 +58,7 @@
     "node": ">=8.17.0"
   },
   "browserslist": [
-    "defaults",
-    "IE 11",
-    "IE_Mob 11"
+    "defaults"
   ],
   "packageManager": "yarn@1.22.22"
 }
