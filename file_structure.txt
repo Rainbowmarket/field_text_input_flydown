@@ -1,4 +1,4 @@
-field-text-input-flydown
+blockly-field-flydown
     /dist/*
     /node_modules/*
     /src/field/
