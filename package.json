@@ -1,6 +1,6 @@
 {
-  "name": "@rainbowmarket/field-text-input-flydown",
-  "version": "3.0.0",
+  "name": "@naviyra/blockly-field-flydown",
+  "version": "1.0.0",
   "description": "Custom Blockly Input Fields with Flydown and Renderer Components",
   "main": "dist/index.js",
   "module": "src/index.js",

@@ -37,3 +37,4 @@ These were already unused on Blockly 12 (core had already renamed or moved the h
 - `blockly` peer/dev dependency: `^13.0.0` (dev pins `^13.2.1`)
 - `@blockly/dev-scripts` / `@blockly/dev-tools` aligned to 13.x releases
 - `browserslist`: dropped IE 11 (Blockly 13 requires Safari 15.4+)
+- Package renamed to `@naviyra/blockly-field-flydown` (GitHub repo: `Rainbowmarket/blockly-field-flydown`)

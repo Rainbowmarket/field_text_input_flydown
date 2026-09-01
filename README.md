@@ -1,22 +1,22 @@
 
-# field_text_input_flydown  [![badge@npm:@rainbowmarket/field-text-input-flydown](https://img.shields.io/npm/v/@rainbowmarket/field-text-input-flydown)](https://www.npmjs.com/package/@rainbowmarket/field-text-input-flydown) [![](https://img.shields.io/npm/l/@rainbowmarket/field-text-input-flydown?dummy=unused)](https://github.com/Rainbowmarket/field_text_input_flydown/blob/main/LICENSE)
+# blockly-field-flydown  [![badge@npm:@naviyra/blockly-field-flydown](https://img.shields.io/npm/v/@naviyra/blockly-field-flydown)](https://www.npmjs.com/package/@naviyra/blockly-field-flydown) [![](https://img.shields.io/npm/l/@naviyra/blockly-field-flydown?dummy=unused)](https://github.com/Rainbowmarket/blockly-field-flydown/blob/main/LICENSE)
 
 
 A custom Blockly field that provides a text input with a flydown menu.
 
 You can see a demo version of a Blockly app that has integrated this plugin
-[here](https://github.com/Rainbowmarket/field_text_input_flydown).  The code for that
-demo is [here](https://rainbowmarket.github.io/field_text_input_flydown/test/).
+[here](https://github.com/Rainbowmarket/blockly-field-flydown).  The code for that
+demo is [here](https://rainbowmarket.github.io/blockly-field-flydown/test/).
 
 ## 🚀 Installation
 To install this library, run the following command:
 ```sh
-npm i @rainbowmarket/field-text-input-flydown
+npm i @naviyra/blockly-field-flydown
 ```
 
 Or include it via CDN:
 ```html
-<script src="https://unpkg.com/@rainbowmarket/field-text-input-flydown@latest"></script>
+<script src="https://unpkg.com/@naviyra/blockly-field-flydown@latest"></script>
 ```
 
 ## 📌 Usage
@@ -25,12 +25,12 @@ Or include it via CDN:
 
 #### ES Modules (Recommended)
 ```js
-import { FieldTextInputWithFlydown, FieldFlydown } from '@rainbowmarket/field_text_input_flydown';
+import { FieldTextInputWithFlydown, FieldFlydown } from '@naviyra/blockly-field-flydown';
 ```
 
 #### CommonJS (Node.js)
 ```js
-const { FieldTextInputWithFlydown, FieldFlydown } = require('@rainbowmarket/field_text_input_flydown');
+const { FieldTextInputWithFlydown, FieldFlydown } = require('@naviyra/blockly-field-flydown');
 ```
 
 ### 2️⃣ Define a Custom Block
